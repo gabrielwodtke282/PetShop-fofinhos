@@ -19,6 +19,10 @@ public class corsConfigurer {
                         .allowedOrigins("http://127.0.0.1:5500") // quem pode acessar
                         .allowedMethods("POST") // quais métodos
                         .allowedHeaders("Content-Type"); // quais headers
+                registry.addMapping("/petshop/usuarios") // endpoint que será liberado
+                        .allowedOrigins("http://127.0.0.1:5500") // quem pode acessar
+                        .allowedMethods("GET", "OPTIONS") // quais métodos
+                        .allowedHeaders("*"); // quais headers
             }
         };
     }

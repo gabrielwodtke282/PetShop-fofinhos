@@ -19,7 +19,7 @@ form.addEventListener("submit", function(event){
     .then(response => response.json())
     .then(data => {
         const tokenJWT = data.token;
-        console.log(tokenJWT)
+        console.log()
 
         document.cookie = `token=${tokenJWT}; path=/; max-age=900`
         console.log("deu certo")
@@ -28,4 +28,3 @@ form.addEventListener("submit", function(event){
 
     
 })
-

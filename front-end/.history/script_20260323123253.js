@@ -6,6 +6,8 @@ form.addEventListener("submit", function(event){
     event.preventDefault();
     const username = document.getElementById("username").value
     const password = document.getElementById("password").value;
+    console.log("Nome digitado:", username);
+    console.log("Senha: ",password )
 
     const dados = {username: username, password: password}
 
@@ -17,15 +19,8 @@ form.addEventListener("submit", function(event){
         body: JSON.stringify(dados)
     })
     .then(response => response.json())
-    .then(data => {
-        const tokenJWT = data.token;
-        console.log(tokenJWT)
-
-        document.cookie = `token=${tokenJWT}; path=/; max-age=900`
-        console.log("deu certo")
-    })
+    .then(data => console.log('Sucesso', data))
     .catch(erro => console.error('Erro:', erro));
 
     
 })
-

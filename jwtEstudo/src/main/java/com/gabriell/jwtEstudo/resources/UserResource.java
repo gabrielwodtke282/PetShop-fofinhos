@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/petshop")
 public class UserResource {
@@ -15,13 +17,13 @@ public class UserResource {
     private UserRepository userRepository;
 
     @GetMapping("/usuarios")
-    public String usuarios(@RequestHeader("Authorization") String authHeader) {
+    public List<User> usuarios(@RequestHeader("Authorization") String authHeader) {
 
         String token = authHeader.replace("Bearer ", "");
 
         String username = JwtService.extrairUsername(token);
-
-        return "Usuarios acessados por: " + username;
+        List<User> users = userRepository.findAll();
+        return users;
     }
 
     @GetMapping(value = "/user/{id}")
@@ -34,5 +36,4 @@ public class UserResource {
     public ResponseEntity<User> insertUser(@RequestBody User usuario){
         return ResponseEntity.ok().body(userRepository.save(usuario));
     }
-
 }

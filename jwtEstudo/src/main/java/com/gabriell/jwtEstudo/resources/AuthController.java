@@ -3,7 +3,6 @@ package com.gabriell.jwtEstudo.resources;
 import com.gabriell.jwtEstudo.entities.User;
 import com.gabriell.jwtEstudo.service.JwtService;
 import com.gabriell.jwtEstudo.service.UserService;
-import com.gabriell.jwtEstudo.service.simulador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
